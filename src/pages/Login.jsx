@@ -7,14 +7,14 @@ function Login(){
   return (
     <div className=" min-h-screen  flex items-center justify-center px-4  font-montserra">
       <div className="max-w-md w-full text-center space-y-6">
-        <div className="absolute top-6 left-6 flex item-center space-x-3">
+        <div className="absolute top-6 left-6 flex items-center space-x-2">
           <img src={SunriseLogo} alt="logo" className="h-10" />
           <span className="font-bold text-sm text-[#ffc235]">
             SUNRISE INTELLIGENCE
           </span>
         </div>
 
-        <h1 className="text-[32px] font-extralight  tracking-[0.15em] font-mediumt text-[#ffc235]">
+        <h1 className="text-[32px] font-extralight  tracking-[0.15em] font-medium text-[#ffc235]">
           COMPASS SCOPE
         </h1>
         <p className="text-white text-[16px] font-thin italic">
@@ -43,7 +43,7 @@ function Login(){
         <div className="text-gray-400">OR</div>
 
         <button className="w-full flex items-center justify-center  py-1 border border-yellow-500 rounded-md ">
-         <img src={LinkedIn} alt="LinkedIn" />
+          <img src={LinkedIn} alt="LinkedIn" />
         </button>
 
         <p className="text-[16] font-light text-yellow-300">
