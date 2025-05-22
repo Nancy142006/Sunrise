@@ -1,58 +1,43 @@
 import user from "../assets/icons/user.svg";
 import notification from "../assets/icons/notification.svg";
-import { Menu } from "lucide-react";
-import { useState } from "react";
+import logout from "../assets/icons/logout.svg"
 import SunriseLogo from "../assets/sunrise-logo.svg";
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("Introduction");
-
-  const tabs = ["Introduction", "What Next?", "Trump 2.0"];
+ 
 
   return (
-    <div className="bg-[#292221] text-white ">
-      {/* Top navbar */}
-      <div className="px-4 py-4 flex justify-between items-center">
-        {/* Logo and Title */}
-        <div className="flex items-center space-x-8">
-          <div className="text-[#FFC235] font-extralight font-montserrat text-[16] space-x-5">
-            <img src={SunriseLogo} alt="logo" className="h-10" />
-            <span className="absolute top-6 left-20 tracking-[0.15em]">
+    <div className="bg-[#292221] text-white h-[80px]">
+      <div className="px-3 py-3 flex justify-between items-center">
+        <div className="flex items-center ">
+          <div className="text-[#FFC235]  space-x-[90px]">
+            <img src={SunriseLogo} alt="logo" className="h-[50px] w-[70px]" />
+            <span className="absolute top-6 text-xl font-extralight font-montserrat tracking-[0.15em]">
               COMPASS SCOPE
             </span>
           </div>
         </div>
 
         {/* Icons */}
-        <div className="flex items-center space-x-10 ">
-          <img src={notification} alt="icon" className="w-4 h-4" />
-          <img src={user} alt="icon" className="w-6 h-6" />
+        <div className="flex items-center space-x-12 pr-6">
+          <img
+            src={notification}
+            alt="icon"
+            className="w-5 h-[24px] cursor-pointer opacity-40  hover:opacity-100  hover:brightness-100 transition-all duration-200"
+          />
+          <img
+            src={user}
+            alt="icon"
+            className="w-10 h-10 cursor-pointer opacity-40  hover:opacity-100  hover:brightness-100 transition-all duration-200"
+          />
+          <img
+            src={logout}
+            alt="icon"
+            className="w-[27px] h-[24px] cursor-pointer opacity-40  hover:opacity-100  hover:brightness-100 transition-all duration-200"
+          />
         </div>
       </div>
 
-      <div className="w-full bg-[#292221] text-white flex items-center px-16 ml-20 border-t-2 border-l-2 border-black">
-        {/* Hamburger Menu */}
-        <div className="p-2 cursor-pointer">
-          <Menu className="w-6 h-6 text-white" />
-        </div>
-
-        {/* Tabs */}
-        <div className="flex space-x-20 ml-20 relative font-inter ">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              className={`py-1 relative ${
-                activeTab === tab ? "text-white font-medium" : "text-gray-400"
-              }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab}
-              {activeTab === tab && (
-                <span className="absolute -bottom-1 left-0 right-0 h-1 bg-yellow-500" />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
+      
     </div>
   );
 };
