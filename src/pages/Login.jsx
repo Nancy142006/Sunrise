@@ -1,5 +1,3 @@
-// src/pages/LoginPage.jsx
-import { FaLinkedin } from "react-icons/fa";
 import SunriseLogo from "../assets/sunrise-logo.svg";
 import LinkedIn from "../assets/linkedin-signin.svg"
 
