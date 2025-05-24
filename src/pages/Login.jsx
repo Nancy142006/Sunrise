@@ -3,7 +3,7 @@ import LinkedIn from "../assets/linkedin-signin.svg"
 
 function Login(){
   return (
-    <div className=" min-h-screen  flex items-center justify-center px-4  font-montserra">
+    <div className=" min-h-screen  flex items-center justify-center px-4 bg-[#292221] font-montserra">
       <div className="max-w-md w-full text-center space-y-6">
         <div className="absolute top-6 left-6 flex items-center space-x-2">
           <img src={SunriseLogo} alt="logo" className="h-10" />
