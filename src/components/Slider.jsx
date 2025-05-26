@@ -2,7 +2,7 @@ function Slider({ value, onChange }) {
   const labels = ["Low Range", "Low-Mid Range", "High-Mid Range", "High Range"];
 
   return (
-    <div className="ml-[300px]">
+    <div>
       <input
         type="range"
         min="0"
@@ -13,7 +13,6 @@ function Slider({ value, onChange }) {
         className="w-[300px] "
       />
 
-      {/* Labels - aligned to match slider width */}
       <div className="w-[345px] ml-[-20px] flex justify-between text-xs font-inter text-gray-600 mt-2">
         {labels.map((label, index) => (
           <span
