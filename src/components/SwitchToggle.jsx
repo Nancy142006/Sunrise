@@ -1,6 +1,6 @@
  function SwitchToggle({ selected, onChange }) {
   return (
-    <div className="ml-[200px] flex border border-[#0D92CB] rounded-[1.2rem] overflow-hidden w-fit">
+    <div className=" flex border border-[#0D92CB] rounded-[1.2rem] overflow-hidden w-fit">
       {["Option 1", "Option 2"].map((option) => (
         <button
           key={option}
