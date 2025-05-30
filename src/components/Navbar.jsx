@@ -1,43 +1,42 @@
-import user from "../assets/icons/user.svg";
-import notification from "../assets/icons/notification.svg";
-import logout from "../assets/icons/logout.svg"
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SunriseLogo from "../assets/sunrise-logo.svg";
-const Navbar = () => {
- 
 
+const Navbar = () => {
   return (
-    <div className="bg-[#292221] text-white h-[80px]">
-      <div className="px-3 py-3 flex justify-between items-center">
-        <div className="flex items-center ">
-          <div className="text-[#FFC235]  space-x-[90px]">
-            <img src={SunriseLogo} alt="logo" className="h-[50px] w-[70px]" />
-            <span className="absolute top-6 text-xl font-extralight font-montserrat tracking-[0.15em]">
-              COMPASS SCOPE
-            </span>
+    <div className="bg-[#292221] text-white h-[70px] w-full">
+      <div className="flex justify-between items-center h-full px-6">
+        <div className="flex items-center space-x-4">
+          <img src={SunriseLogo} alt="logo" className="h-[50px] w-[70px]" />
+          <span className="text-[#FFC235] text-lg font-medium tracking-[0.15em]">
+            COMPASS SCOPE
+          </span>
+        </div>
+
+        <div className="flex items-center space-x-6 text-sm">
+            <NotificationsOutlinedIcon className ="w-5 h-5 cursor-pointer text-[#FFC235]"/>
+
+
+          <div className="flex items-center space-x-2">
+            <div className="bg-[#FFC235] text-[#292221] font-bold rounded-full w-8 h-8 flex items-center justify-center">
+              RK
+            </div>
+            <span className="text-white">Ritesh Kumar</span>
+            <svg
+              className="w-3 h-3 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
           </div>
         </div>
-
-        {/* Icons */}
-        <div className="flex items-center space-x-12 pr-6">
-          <img
-            src={notification}
-            alt="icon"
-            className="w-5 h-[24px] cursor-pointer opacity-40  hover:opacity-100  hover:brightness-100 transition-all duration-200"
-          />
-          <img
-            src={user}
-            alt="icon"
-            className="w-10 h-10 cursor-pointer opacity-40  hover:opacity-100  hover:brightness-100 transition-all duration-200"
-          />
-          <img
-            src={logout}
-            alt="icon"
-            className="w-[27px] h-[24px] cursor-pointer opacity-40  hover:opacity-100  hover:brightness-100 transition-all duration-200"
-          />
-        </div>
       </div>
-
-      
     </div>
   );
 };
