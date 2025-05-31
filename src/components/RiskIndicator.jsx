@@ -7,7 +7,7 @@ const RiskIndicator = ({ title, value, description }) => (
     <ReactSpeedometer
       maxValue={100}
       value={value}
-      valueTextFontSize={0} // hides value text
+      valueTextFontSize={0}
       needleColor="black"
       width={265}
       height={120}
