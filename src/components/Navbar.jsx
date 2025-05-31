@@ -17,8 +17,7 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Right side (notifications and profile) */}
-        <div className="flex items-center space-x-4 text-sm">
+            <div className="flex items-center space-x-4 text-sm">
           <NotificationsOutlinedIcon className="w-5 h-5 cursor-pointer text-[#FFC235]" />
           <div className="flex items-center space-x-2">
             <div className="bg-[#FFC235] text-[#292221] font-bold rounded-full w-8 h-8 flex items-center justify-center">
