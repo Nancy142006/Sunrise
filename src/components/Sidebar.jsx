@@ -15,17 +15,23 @@ const Sidebar = () => {
   const [selected, setSelected] = useState("home");
 
   return (
-    <div className="w-[78px] h-screen bg-[#433E3E] rounded-md flex flex-col justify-between items-center py-6">
-      <div className="flex flex-col items-center space-y-6 mt-4">
+    <div className="w-[78px] h-[34rem] bg-[#433E3E] rounded-md flex flex-col justify-between items-center py-6">
+      <div className="flex flex-col items-center space-y-6 ">
         {icons.map((icon) => (
           <div
             key={icon.id}
             onClick={() => setSelected(icon.id)}
             className={`p-3 rounded-xl cursor-pointer transition ${
-              selected === icon.id ? "bg-yellow-400 " : "hover:bg-yellow-300"
+              selected === icon.id ? "bg-[#FFC235]" : "hover:bg-yellow-300"
             }`}
           >
-            <img src={icon.src} alt={`${icon.id}-icon`} className="w-6 h-6" />
+            <img
+              src={icon.src}
+              alt={`${icon.id}-icon`}
+              className={`w-6 h-6 transition ${
+                selected === icon.id ? "invert" : "invert brightness-0"
+              }`}
+            />
           </div>
         ))}
       </div>
