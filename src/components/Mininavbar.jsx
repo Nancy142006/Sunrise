@@ -1,16 +1,24 @@
 import { Menu } from "lucide-react";
-import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Mininavbar = () => {
-  const [activeTab, setActiveTab] = useState("Home");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const tabs = [
-    "Home",
-    "Risk Indicators",
-    "Section 1",
-    "Section 2",
-    "Section 3",
+    { label: "Home", path: "/dashboard" },
+    { label: "Risk Indicators", path: "/risk-indicators" },
+    { label: "Section 1", path: "/section-1" },
+    { label: "Section 2", path: "/section-2" },
+    { label: "Section 3", path: "/section-3" },
   ];
+
+  const [activeTab, setActiveTab] = useState("/");
+
+  useEffect(() => {
+    setActiveTab(location.pathname);
+  }, [location.pathname]);
 
   return (
     <div className="w-full h-[50px] bg-[#292221] text-white border border-[#414141]">
@@ -22,14 +30,16 @@ const Mininavbar = () => {
         <div className="flex space-x-10 text-sm font-montserrat relative">
           {tabs.map((tab) => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
+              key={tab.path}
+              onClick={() => navigate(tab.path)}
               className={`relative transition-all duration-200 ${
-                activeTab === tab ? "text-white font-semibold" : "text-gray-400"
+                activeTab === tab.path
+                  ? "text-white font-semibold"
+                  : "text-gray-400"
               }`}
             >
-              {tab}
-              {activeTab === tab && (
+              {tab.label}
+              {activeTab === tab.path && (
                 <span className="absolute left-0 bottom-[-12px] h-[3px] w-full bg-[#FFC235] rounded-full"></span>
               )}
             </button>
