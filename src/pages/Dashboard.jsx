@@ -8,7 +8,7 @@ import ReportCard from "../components/Report";
 function Dashboard() {
   return (
     <div className="h-screen text-white overflow-hidden">
-      <div className="fixed top-0 left-0 w-full z-50">
+      <div className="fixed top-0 left-0 w-full z-40">
         <Navbar />
       </div>
 
@@ -16,7 +16,7 @@ function Dashboard() {
         <Mininavbar />
       </div>
 
-      <div className="fixed top-[125px] left-5 w-[80px] z-30">
+      <div className="fixed top-[130px] left-5 w-[80px] z-30">
         <Sidebar />
       </div>
 
@@ -52,7 +52,7 @@ function Dashboard() {
                 <ReportCard />
               </div>
               <div>
-                <Honeycomb />
+                <Honeycomb width={400} height={380} radius={60} />
               </div>
             </div>
           </div>
