@@ -57,8 +57,8 @@ const Honeycomb = ({ width = 400, height = 380, radius = 60 }) => {
       .attr("d", hexbin.hexagon())
       .attr("transform", (d) => `translate(${d.x}, ${d.y})`)
       .attr("fill", (d, i) => colors[i])
-      .attr("stroke", "#3B3B3B") // Your desired border color
-      .attr("stroke-width", 5); // Your desired border width
+      .attr("stroke", "#3B3B3B") 
+      .attr("stroke-width", 5); 
 
     svg
       .append("g")
