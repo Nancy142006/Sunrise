@@ -5,26 +5,20 @@ import { hexbin as d3Hexbin } from "d3-hexbin";
 const colors = [
   "#A42121",
   "#A42121",
-  "#E6A740", 
-  "#E6A740", 
+  "#E6A740",
+  "#E6A740",
   "#178247",
-  "#E6A740", 
-  "#178247", 
+  "#E6A740",
+  "#178247",
 ];
 
-const Honeycomb = () => {
+const Honeycomb = ({ width = 400, height = 380, radius = 60 }) => {
   const svgRef = useRef(null);
 
   useEffect(() => {
-    const width = 400;
-    const height = 380;
-    const radius = 60;
-
-    // Hex height and width
     const hexWidth = radius * Math.sqrt(3);
     const hexHeight = radius * 1.5;
 
-    // Grid layout: 3 rows
     const points = [
       [0, -hexHeight],
       [hexWidth, -hexHeight], // top row
@@ -35,7 +29,6 @@ const Honeycomb = () => {
       [hexWidth, hexHeight], // bottom row
     ];
 
-    // Center offset
     const offsetX = width / 2;
     const offsetY = height / 2;
 
@@ -55,7 +48,6 @@ const Honeycomb = () => {
       .style("background-color", "rgba(245, 240, 230, 0.1)")
       .style("border-radius", "6px");
 
-    // Draw hexagons
     svg
       .append("g")
       .selectAll("path")
@@ -65,10 +57,9 @@ const Honeycomb = () => {
       .attr("d", hexbin.hexagon())
       .attr("transform", (d) => `translate(${d.x}, ${d.y})`)
       .attr("fill", (d, i) => colors[i])
-      .attr("stroke", "rgba(47, 41, 41, 0.1)")
-      .attr("stroke-width", 1);
+      .attr("stroke", "#3B3B3B") // Your desired border color
+      .attr("stroke-width", 5); // Your desired border width
 
-    // Add centered text
     svg
       .append("g")
       .selectAll("text")
@@ -82,17 +73,13 @@ const Honeycomb = () => {
       .attr("fill", "white")
       .attr("font-size", 12)
       .text("This is some text");
-  }, []);
+  }, [width, height, radius]);
+
   return (
-    <div
-    //  className="flex justify-center items-center h-screen px-[30px] py-[30px]"
-    >
-      <svg ref={svgRef} 
-      // className="max-w-full h-auto"
-      ></svg>
+    <div>
+      <svg ref={svgRef}></svg>
     </div>
   );
-  
 };
 
 export default Honeycomb;
