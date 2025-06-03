@@ -1,3 +1,5 @@
+import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
 import SunriseLogo from "../assets/sunrise-logo.svg";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlineIcon from "@mui/icons-material/LockOutline";
@@ -5,6 +7,19 @@ import bg from "../assets/bg.svg";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 function Login() {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    
+    if(username && password){
+      navigate('/dashboard');
+    }else {
+      alert("Enter both username and password");
+    }
+  };
   return (
     <div
       className=" min-h-screen bg-cover bg-center flex items-center justify-center px-4 bg-[#292221] font-montserra"
@@ -27,13 +42,15 @@ function Login() {
         </p>
 
         <div className="bg-[#FFFFFF] bg-opacity-[4%] py-[40px] px-[20px] rounded-xl max-w-sm mx-auto  boder-[#575757]">
-          <form className="space-y-4">
+          <form className="space-y-4 " onSubmit={handleSubmit}>
             <div className="flex items-center bg-[#433E3E] rounded-md px-4 py-2">
               <EmailOutlinedIcon className="text-yellow-500 mr-3" />
               <input
                 type="text"
                 placeholder="Username"
                 className="bg-transparent text-white font-light w-full outline-none"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
 
@@ -43,10 +60,11 @@ function Login() {
                 type="password"
                 placeholder="Password"
                 className="bg-transparent text-white font-light w-full outline-none"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
-            {/* Login Button */}
             <button
               type="submit"
               className="w-full font-montserrat bg-[#FFC235] hover:bg-yellow-500 text-black py-2 font-bold rounded-md"
