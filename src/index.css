@@ -5,3 +5,14 @@
 body {
     @apply bg-[#292221] text-white;
   }
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 1.5rem;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
+  
