@@ -5,7 +5,6 @@ const Navbar = () => {
   return (
     <div className="bg-[#292221] text-white h-auto w-full py-3">
       <div className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 space-y-2 sm:space-y-0">
-        {/* Logo and title */}
         <div className="flex items-center space-x-3">
           <img
             src={SunriseLogo}
