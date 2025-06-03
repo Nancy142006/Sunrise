@@ -48,15 +48,15 @@ function Risk() {
 
   return (
     <div className="h-screen text-white overflow-hidden">
-      <div className="fixed top-0 left-0 w-full z-50">
+      <div className="fixed top-0 left-0 w-full z-40">
         <Navbar />
       </div>
 
-      <div className="fixed top-[66px] left-0 w-full z-40">
+      <div className="fixed top-[68px] left-0 w-full z-40">
         <Mininavbar />
       </div>
 
-      <div className="fixed top-[125px] left-5 w-[80px] z-30">
+      <div className="fixed top-[130px] left-5 w-[80px] z-30">
         <Sidebar />
       </div>
 
