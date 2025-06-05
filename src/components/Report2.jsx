@@ -20,7 +20,7 @@ const Report1 = () => {
         current analyses:
       </p>
 
-      <div className="space-y-5 text-sm">
+      <section className="space-y-5 text-sm">
         <div>
           <p className="font-semibold mb-1">📉 Economic Growth Projections</p>
           <p>
@@ -62,7 +62,7 @@ const Report1 = () => {
             intensify.
           </p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
