@@ -1,5 +1,6 @@
-import {useNavigate} from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 import SunriseLogo from "../assets/sunrise-logo.svg";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlineIcon from "@mui/icons-material/LockOutline";
@@ -11,13 +12,30 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if(username && password){
-      navigate('/dashboard');
-    }else {
-      alert("Enter both username and password");
+
+    if (!username || !password) {
+      return alert("Enter both username and password");
+    }
+
+    try {
+      const res = await axios.post("http://localhost:5000/login", {
+        username,
+        password,
+      });
+
+      if (res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      console.error(error);
+      if (error.response && error.response.data) {
+        alert(error.response.data.message);
+      } else {
+        alert("Login failed. Please try again.");
+      }
     }
   };
   return (
