@@ -2,9 +2,42 @@ import SunriseLogo from "../assets/sunrise-logo.svg";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlineIcon from "@mui/icons-material/LockOutline";
 import bg from "../assets/bg.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Register() {
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:5000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      alert("Registration successful! You can now log in.");
+      navigate("/");
+    } else {
+      alert(data.message || "Registration failed");
+    }
+  };
   return (
     <div
       className=" min-h-screen bg-cover bg-center flex items-center justify-center px-4 font-montserra"
@@ -26,12 +59,15 @@ function Register() {
         </p>
 
         <div className="bg-[#FFFFFF] bg-opacity-[4%] py-[40px] px-[20px] rounded-xl max-w-sm mx-auto  boder-[#575757]">
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex items-center bg-[#433E3E] rounded-md px-4 py-2">
               <EmailOutlinedIcon className="text-yellow-500 mr-3" />
               <input
                 type="text"
+                name="username"
                 placeholder="Username"
+                value={formData.username}
+                onChange={handleChange}
                 className="bg-transparent text-white font-light w-full outline-none"
               />
             </div>
@@ -40,7 +76,10 @@ function Register() {
               <LockOutlineIcon className="text-yellow-500 mr-3" />
               <input
                 type="password"
+                name="password"
                 placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
                 className="bg-transparent text-white font-light w-full outline-none"
               />
             </div>
@@ -48,7 +87,10 @@ function Register() {
               <LockOutlineIcon className="text-yellow-500 mr-3" />
               <input
                 type="password"
+                name="confirmPassword"
                 placeholder="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
                 className="bg-transparent text-white font-light w-full outline-none"
               />
             </div>
@@ -63,9 +105,9 @@ function Register() {
         </div>
 
         <p className="text-[16] font-light text-white underline">
-          I am already a member!
-          <Link to="/Login" className="text-[#FFC235]">
-            {" "}Sign In
+          I am already a member!{" "}
+          <Link to="/" className="text-[#FFC235]">
+            Sign In
           </Link>
         </p>
       </div>
